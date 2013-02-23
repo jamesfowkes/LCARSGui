@@ -1,6 +1,6 @@
-##
-## LCARS GUI Objects Library : Text Object in "Star Trek" font
-##
+# #
+# # LCARS GUI Objects Library : Text Object in "Star Trek" font
+# #
 
 import pygame
 
@@ -9,7 +9,7 @@ from lcarsobject import LCARSObject
 font = "swiss911ultracompressed"
 
 def getHeight(text, size):
-	(w, h)= pygame.font.SysFont(font, size).size(text)
+	(w, h) = pygame.font.SysFont(font, size).size(text)
 	return w
 	
 class TextAlign:
@@ -26,7 +26,7 @@ class LCARSText(LCARSObject):
 		self.font = pygame.font.SysFont(font, size)
 		self.text = self.font.render(text, 1, fg, bg)
 		
-		#Define enclosing rectangle based on alignment point and align choice		
+		# Define enclosing rectangle based on alignment point and align choice		
 		top = y - (self.text.get_height() / 2)
 		if (xalign == TextAlign.XALIGN_CENTRE):
 			left = x - (self.text.get_width() / 2)

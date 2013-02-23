@@ -79,7 +79,11 @@ class LCARSCappedBar(LCARSObject):
 		if (self.visible):
 			# Draw on a separate surface before blitting
 			surf = pygame.Surface(self.rect.size)
-			surf.fill(self.fg)
+				
+			#Define the rectangle inside the endcaps			
+			irect = self.rect.copy()
+			irect.left = 0
+			irect.top = 0
 			
 			# Draw each endcap
 			for capDict in self.caps:
@@ -87,17 +91,22 @@ class LCARSCappedBar(LCARSObject):
 				loc = capDict['loc']
 				# Remove rectangle enclosing cap before drawing
 				if loc == CapLocation.CAP_RIGHT:
-					pygame.draw.rect(surf, self.bg, cap.move(cap.w/2,0), 0)
+					irect.w -= cap.w/2
 				if loc == CapLocation.CAP_LEFT:
-					pygame.draw.rect(surf, self.bg, cap.move(-cap.w/2,0), 0)
+					irect.w -= cap.w/2
+					irect.left += cap.w/2
 				if loc == CapLocation.CAP_BOTTOM:
-					pygame.draw.rect(surf, self.bg, cap.move(0, cap.h/2), 0)
+					irect.h -= cap.w/2
 				if loc == CapLocation.CAP_TOP:
-					pygame.draw.rect(surf, self.bg, cap.move(0, -cap.h/2), 0)
+					irect.h -= cap.w/2
+					irect.top += cap.w/2
 				
 				# pygame doesn't do filled arcs well, so draw full circle
 				pygame.draw.ellipse(surf, self.fg, cap, 0)
-				
+
+			surf.fill(self.fg, irect)
+			surf.set_colorkey(self.bg)
+			
 			window.blit(surf, self.rect)
 			
 			# Draw text (if any)
