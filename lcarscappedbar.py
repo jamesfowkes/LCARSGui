@@ -8,8 +8,7 @@ from __future__ import division
 import pygame
 
 
-from lcarsobject import LCARSObject
-from lcarstext import LCARSText, TextAlign
+from LCARSGui import LCARSObject, LCARSText, TextAlign
 
 class CapLocation:
 	CAP_TOP = 1

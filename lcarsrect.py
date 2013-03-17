@@ -4,7 +4,7 @@
 
 import pygame
 
-from lcarstext import LCARSText
+from LCARSGui import LCARSText
 
 class LCARSRect(LCARSText):
 

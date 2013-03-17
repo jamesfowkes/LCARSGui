@@ -4,7 +4,7 @@
 
 import pygame
 
-from lcarsobject import LCARSObject
+from LCARSGui import LCARSObject
 
 class LCARSImage(LCARSObject):
 
