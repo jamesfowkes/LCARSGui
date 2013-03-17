@@ -4,9 +4,7 @@
 
 from __future__ import division
 
-
 import pygame
-
 
 from LCARSGui import LCARSObject, LCARSText, TextAlign
 

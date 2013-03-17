@@ -9,9 +9,10 @@ import pygame
 from LCARSGui import LCARSObject
 import math
 
-class LCARSTLSweep(LCARSObject):
+class LCARSSweep(LCARSObject):
 
-	def __init__(self, rect, xthick, ythick, fg, bg, show):
+	def __init__(self, rect, corner, xthick, ythick, fg, bg, show):
+	
 		LCARSObject.__init__(self, rect, fg, bg, show)
 		
 		minl = min(xthick, ythick)
