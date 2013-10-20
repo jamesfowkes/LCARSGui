@@ -6,7 +6,7 @@ import pygame
 
 from LCARSGui import LCARSObject
 
-font = "swiss911ultracompressed"
+font_search = "swiss911"
 
 def getHeight(text, size):
 	(w, h) = pygame.font.SysFont(font, size).size(text)
@@ -23,7 +23,10 @@ class LCARSText(LCARSObject):
 	
 		(x, y) = alignpoint
 		
-		self.font = pygame.font.SysFont(font, size)
+		font_list = pygame.font.get_fonts()
+		font_list = [font for font in font_list if (font.find(font_search) > -1)]
+
+		self.font = pygame.font.SysFont(font_list[0], size)
 		self.text = self.font.render(text, 1, fg, bg)
 		
 		# Define enclosing rectangle based on alignment point and align choice		
